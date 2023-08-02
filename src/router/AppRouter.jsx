@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { authRoutes } from '../auth/routes/authRoutes';
-import { journalRoutes } from '../journal/routes/JournalRoutes';
+import { journalRoutes } from '../journal';
+import { authRoutes } from '../auth';
 
-const router = createBrowserRouter([...authRoutes, ...journalRoutes]);
+const router = createBrowserRouter([...journalRoutes, ...authRoutes]);
 
 export const AppRouter = () => {
   return <RouterProvider router={router} />;

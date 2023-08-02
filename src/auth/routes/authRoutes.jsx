@@ -1,11 +1,9 @@
 import { Navigate } from 'react-router-dom';
-import { LoginPage, RegisterPage } from '../pages';
-import ErrorPage from '../../ErrorPage';
+import { LoginPage, RegisterPage } from '../';
 
 export const authRoutes = [
   {
-    path: '/auth/*',
-    errorElement: <ErrorPage/>,
+    path: 'auth/*',
     children: [
       {
         path: 'login',
@@ -17,7 +15,7 @@ export const authRoutes = [
       },
       {
         path: '*',
-        element: <Navigate to='/auth/login' />,
+        element: <Navigate to='login' />,
       },
     ],
   },

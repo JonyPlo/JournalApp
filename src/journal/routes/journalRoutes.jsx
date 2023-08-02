@@ -1,15 +1,16 @@
 import { Navigate } from 'react-router-dom';
-import { JournalPage } from '../pages/JournalPage';
-import ErrorPage from '../../ErrorPage';
+import { JournalPage } from '../';
 
 export const journalRoutes = [
   {
     path: '/*',
-    errorElement: <ErrorPage />,
     children: [
-      { path: '/', element: <JournalPage /> },
       {
-        path: '/*',
+        index: true, // index = true significa que cuando la ruta sea igual a la del path padre que en este caso es "/", se renderizara el elemento de este objeto
+        element: <JournalPage />,
+      },
+      {
+        path: '*',
         element: <Navigate to='/' />,
       },
     ],
