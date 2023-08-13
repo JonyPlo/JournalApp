@@ -17,5 +17,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'react/prop-types': 'off',
+    'no-extra-boolean-cast': 'off',
+    'react-hooks/exhaustive-deps': 'off',
   },
 };

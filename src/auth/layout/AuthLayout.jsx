@@ -1,7 +1,13 @@
-import { Grid, Typography } from '@mui/material';
+import { Box, Grid, LinearProgress, Typography } from '@mui/material';
 import propTypes from 'prop-types';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 
 export const AuthLayout = ({ children, title }) => {
+  const { status } = useSelector((state) => state.auth);
+
+  const isAuthenticated = useMemo(() => status === 'checking', [status]);
+
   return (
     <Grid
       container
@@ -24,12 +30,19 @@ export const AuthLayout = ({ children, title }) => {
           backgroundColor: 'white',
           padding: 3,
           borderRadius: 2,
+          position: 'relative',
+          overflow: 'hidden',
         }}
       >
         <Typography variant='h5' sx={{ mb: 1 }}>
           {title}
         </Typography>
         {children}
+        {isAuthenticated && (
+          <Box sx={{ width: '100%', position: 'absolute', bottom: 0, left: 0 }}>
+            <LinearProgress />
+          </Box>
+        )}
       </Grid>
     </Grid>
   );
