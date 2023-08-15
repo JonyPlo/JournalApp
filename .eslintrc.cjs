@@ -19,5 +19,6 @@ module.exports = {
     'react/prop-types': 'off',
     'no-extra-boolean-cast': 'off',
     'react-hooks/exhaustive-deps': 'off',
+    'quotes': ['error', 'single'],
   },
 };
