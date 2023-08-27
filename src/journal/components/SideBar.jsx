@@ -2,6 +2,7 @@ import {
   Box,
   Divider,
   Drawer,
+  Grid,
   List,
   Toolbar,
   Typography,
@@ -41,9 +42,20 @@ export const SideBar = ({ drawerWidth = 240 }) => {
         <Divider />
 
         <List>
-          {notes.map((note) => (
-            <SidebarItem key={note.id} {...note} />
-          ))}
+          {notes.length === 0 ? (
+            <Grid
+              container
+              justifyContent={'center'}
+              alignItems={'center'}
+              sx={{ minHeight: '100vh' }}
+            >
+              <Typography variant='h5' color={'GrayText'} mx={'.7em'}>
+                No hay notas guardadas por el momento
+              </Typography>
+            </Grid>
+          ) : (
+            notes?.map((note) => <SidebarItem key={note.id} {...note} />)
+          )}
         </List>
       </Drawer>
     </Box>
