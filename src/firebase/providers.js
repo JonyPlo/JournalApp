@@ -11,6 +11,7 @@ import { FirebaseAuth } from './config';
 
 // Esta constante es el proveedor que vamos a usar para que aparezca el popup
 const googleProvider = new GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' }); // NOTA IMPORTANTE: SI NO SE AGREGA ESTA LINEA, EL POPUP PARA EL LOGIN ESTARA EN BLANCO Y NO MOSTRARA LAS CUENTAS, LO CUAL DARA ALGUNOS ERRORES DE CROSS-ORIGIN
 
 export const signInWithGoogle = async () => {
   try {
