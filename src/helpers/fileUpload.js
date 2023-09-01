@@ -1,5 +1,7 @@
+// LOGICA PARA PODER SUBIR IMAGENES A CLOUDINARY
 export const fileUpload = async (file) => {
-  if (!file) throw new Error('No tenemos ningun archivo a subir');
+  // if (!file) throw new Error('No tenemos ningun archivo a subir');
+  if (!file) return null
 
   const cloudUrl = 'https://api.cloudinary.com/v1_1/cloudinary-jony/upload';
   const formData = new FormData();
@@ -18,7 +20,8 @@ export const fileUpload = async (file) => {
 
     return secure_url;
   } catch (error) {
-    console.log(error);
-    throw new Error(error.message);
+    // console.log(error);
+    // throw new Error(error.message);
+    return null
   }
 };

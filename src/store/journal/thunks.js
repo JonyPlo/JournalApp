@@ -90,13 +90,15 @@ export const startUploadingFiles = (files = []) => {
 export const startDeletingNote = () => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
-    const { activeNote } = getState().journal;
+    const {
+      activeNote: { id: noteId },
+    } = getState().journal;
 
-    const docRef = doc(FirebaseDB, `${uid}/journal/notes/${activeNote.id}`);
+    const docRef = doc(FirebaseDB, `${uid}/journal/notes/${noteId}`);
 
     try {
       await deleteDoc(docRef);
-      dispatch(deleteNoteById(activeNote.id));
+      dispatch(deleteNoteById(noteId));
     } catch (error) {
       console.log(error);
       throw new Error('Error al intentar borrar la nota');
