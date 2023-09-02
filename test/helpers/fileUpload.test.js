@@ -32,7 +32,7 @@ describe('Testing in fileUpload', () => {
   });
 
   test('should return null', async () => {
-    const file = new File([], 'foto.jpg');
+    const file = new File([], 'fotoo.jpg');
     const url = await fileUpload(file);
 
     expect(url).toBe(null);
