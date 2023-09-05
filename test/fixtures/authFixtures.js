@@ -22,12 +22,12 @@ export const notAuthenticatedState = {
   email: null,
   displayName: null,
   photoURL: null,
-  errorMessage: null,
+  errorMessage: undefined,
 };
 
 export const demoUser = {
   uid: 'asd123',
   email: 'demo@gmail.com',
-  dispayName: 'Demo user',
+  displayName: 'Demo user',
   photoURL: 'https://demo.jpg',
 };
