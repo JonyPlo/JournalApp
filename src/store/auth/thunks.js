@@ -7,6 +7,13 @@ import {
 import { clearNotesLogout } from '../journal';
 import { checkingCredentials, login, logout } from './';
 
+// Este thunk checkingAuthentication fue creado solo para ser usado en el testing
+export const checkingAuthentication = () => {
+  return async (dispatch) => {
+    dispatch(checkingCredentials());
+  };
+};
+
 export const startGoogleSignIn = () => {
   return async (dispatch) => {
     dispatch(checkingCredentials());
