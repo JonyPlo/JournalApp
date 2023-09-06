@@ -33,7 +33,6 @@ describe('Testing in authSlice', () => {
 
   test('should perform logout without aurguments', () => {
     const state = authSlice.reducer(authenticatedState, logout());
-    console.log(state);
 
     expect(state).toEqual({
       status: 'not-authenticated',
