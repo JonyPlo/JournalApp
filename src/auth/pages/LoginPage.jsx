@@ -81,7 +81,7 @@ export const LoginPage = () => {
                 fullWidth
                 disabled={isAuthenticated}
               >
-                Login
+                <Typography>Login</Typography>
               </Button>
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -90,9 +90,9 @@ export const LoginPage = () => {
                 fullWidth
                 disabled={isAuthenticated}
                 onClick={onGoogleSignIn}
+                startIcon={<Google />}
               >
-                <Google />
-                <Typography sx={{ ml: 1 }}>Google</Typography>
+                <Typography>Google</Typography>
               </Button>
             </Grid>
           </Grid>

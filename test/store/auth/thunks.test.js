@@ -49,7 +49,6 @@ describe('Testing in AuthThunks', () => {
     };
 
     await signInWithGoogle.mockResolvedValue(loginData);
-
     await startGoogleSignIn()(dispatch);
 
     expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
@@ -61,7 +60,6 @@ describe('Testing in AuthThunks', () => {
     const formData = { email: demoUser.email, password: '123456' };
 
     await loginWithEmailPassword.mockResolvedValue(loginData);
-
     await startLoginWithEmailPassword(formData)(dispatch);
 
     expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
@@ -73,7 +71,6 @@ describe('Testing in AuthThunks', () => {
     const formData = { email: demoUser.email, password: '123456' };
 
     await loginWithEmailPassword.mockResolvedValue(loginData);
-
     await startLoginWithEmailPassword(formData)(dispatch);
 
     expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
@@ -89,7 +86,6 @@ describe('Testing in AuthThunks', () => {
     };
 
     await registerUserWithEmailPassword.mockResolvedValue(loginData);
-
     await startCreatingUserWithEmailPassword(formData)(dispatch);
 
     expect(dispatch).toHaveBeenCalledWith(checkingCredentials());
@@ -105,7 +101,6 @@ describe('Testing in AuthThunks', () => {
     };
 
     await registerUserWithEmailPassword.mockResolvedValue(loginData);
-
     await startCreatingUserWithEmailPassword(formData)(dispatch);
 
     expect(dispatch).toHaveBeenCalledWith(checkingCredentials());

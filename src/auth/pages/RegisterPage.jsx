@@ -130,7 +130,7 @@ export const RegisterPage = () => {
                 fullWidth
                 disabled={isCheckingAuthentication}
               >
-                Crear cuenta
+                <Typography>Crear cuenta</Typography>
               </Button>
             </Grid>
           </Grid>
