@@ -46,11 +46,11 @@ describe('Testing in Journal Thunks', () => {
     // Borrar notas/documentos que se crearon en el test de firebase
 
     const collectionRef = collection(FirebaseDB, `${uid}/journal/notes`);
-    const docs = await getDocs(collectionRef);
-    const deletePromises = []; // En este array guardare todas las promesas que se encargaran de eliminar documento por documento
+    const { docs } = await getDocs(collectionRef); // Extraigo docs del objeto que me devuelve la promesa
+    const deletePromises = docs.map(({ ref }) => deleteDoc(ref)); // Creo un nuevo array con .map para guardar por cada elemento que tenga el array una funcion deleteDoc() mas la referencia del documento que la paso como argumento a esa funcion, recordar que deleteDoc() es una promesa
 
-    docs.forEach(({ ref }) => deletePromises.push(deleteDoc(ref)));
+    await Promise.all(deletePromises);
 
-    await Promise.all(deletePromises); // NOTA: para que la prueba pase se tuvo que agregar al test un timeout de 10000ms ya que el timeout por defecto es de 5000 y hacer el proceso de crear una nota y borrarla tomaba mas que ese tiempo, por lo tanto el test terminaba con una falla de timeout
+    // NOTA: para que la prueba pase se tuvo que agregar al test un timeout de 10000ms ya que el timeout por defecto es de 5000 y hacer el proceso de crear una nota y borrarla tomaba mas que ese tiempo, por lo tanto el test terminaba con una falla de timeout
   }, 10000);
 });

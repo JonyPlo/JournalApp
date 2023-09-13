@@ -1,15 +1,13 @@
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom'; // Renombro el Link por el alias RouterLink ya que tambien estoy importando un componente Link de la libreria de material y tener los 2 con el mismo nombre provocaría un conflicto
-import { Google } from '@mui/icons-material';
-import {
-  Button,
-  Grid,
-  TextField,
-  Typography,
-  Link,
-  Alert,
-} from '@mui/material';
+import Google  from '@mui/icons-material/Google';
+import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 import {
@@ -36,6 +34,7 @@ export const LoginPage = () => {
   };
 
   const onGoogleSignIn = () => {
+    console.log('onGoogleSignIn');
     dispatch(startGoogleSignIn());
   };
 
@@ -89,6 +88,7 @@ export const LoginPage = () => {
                 variant='contained'
                 fullWidth
                 disabled={isAuthenticated}
+                aria-label='googleButton'
                 onClick={onGoogleSignIn}
                 startIcon={<Google />}
               >
