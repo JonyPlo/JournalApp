@@ -34,19 +34,18 @@ export const LoginPage = () => {
   };
 
   const onGoogleSignIn = () => {
-    console.log('onGoogleSignIn');
     dispatch(startGoogleSignIn());
   };
 
   return (
     <AuthLayout title='Login'>
       <form
+      aria-label='submit-form'
         onSubmit={onSubmit}
         className='animate__animated animate__fadeIn animate__faster'
       >
         <Grid container>
           <Grid item xs={12} sx={{ mt: 2 }}>
-            {/* En MaterialUI el componente TextField es un input */}
             <TextField
               label='Correo'
               type='email'
@@ -55,16 +54,16 @@ export const LoginPage = () => {
               name='email'
               value={email}
               onChange={onInputChange}
-            />
+              />
           </Grid>
           <Grid item xs={12} sx={{ mt: 2 }}>
-            {/* En MaterialUI el componente TextField es un input */}
             <TextField
               label='Contraseña'
               type='password'
               placeholder='Contraseña'
               fullWidth
               name='password'
+              inputProps={{'aria-label': 'password'}}
               value={password}
               onChange={onInputChange}
             />
